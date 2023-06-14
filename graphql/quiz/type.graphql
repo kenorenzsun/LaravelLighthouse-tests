@@ -1,0 +1,9 @@
+type Quiz {
+    id: ID!
+    name: String!
+    description: String!
+    category_id: ID!
+    category: Category! @belongsTo
+    questions: [Question!]! @hasMany
+    results: [Result!]! @hasMany
+}

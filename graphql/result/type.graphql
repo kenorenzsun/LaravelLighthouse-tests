@@ -1,0 +1,8 @@
+type Result {
+    id: ID!
+    score: Int!
+    user_id: ID!
+    quiz_id: ID!
+    user: User! @belongsTo
+    quiz: Quiz! @belongsTo
+}

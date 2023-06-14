@@ -1,0 +1,6 @@
+extend type Mutation @guard {
+    createResult(
+        quiz_id: ID! @rules(apply: ["required"])
+        answers: [ResultAnswers!]!
+    ): Result! @field(resolver: "App\\GraphQL\\Mutations\\CreateResult")
+}

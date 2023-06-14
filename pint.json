@@ -1,0 +1,12 @@
+{
+    "rules": {
+        "not_operator_with_successor_space": false,
+        "no_blank_lines_after_phpdoc": false,
+        "concat_space": false,
+        "phpdoc_no_package": false,
+        "phpdoc_separation": false,
+        "phpdoc_var_without_name": false,
+        "Laravel/laravel_phpdoc_alignment": false,
+        "single_import_per_statement": false
+    }
+}

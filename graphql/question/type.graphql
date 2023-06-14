@@ -1,0 +1,7 @@
+type Question {
+    id: ID!
+    question: String!
+    quiz_id: ID!
+    quiz: Quiz! @belongsTo
+    answers: [Answer!]! @hasMany
+}

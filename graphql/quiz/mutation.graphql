@@ -1,0 +1,14 @@
+extend type Mutation @guard {
+    createQuiz(
+        name: String! @rules(apply: ["required"])
+        description: String! @rules(apply: ["required"])
+        category_id: ID! @rules(apply: ["required", "integer"])
+    ): Quiz! @create
+    updateQuiz(
+        id: ID! @rules(apply: ["required", "integer"])
+        name: String! @rules(apply: ["required"])
+        description: String! @rules(apply: ["required"])
+        category_id: ID! @rules(apply: ["required", "integer"])
+    ): Quiz! @update
+    deleteQuiz(id: ID! @whereKey): Quiz! @delete
+}

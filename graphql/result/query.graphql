@@ -1,0 +1,4 @@
+extend type Query @guard {
+    result(id: ID! @eq): Result @find
+    results(user_id: ID! = "%%" @where): [Result!]! @paginate
+}

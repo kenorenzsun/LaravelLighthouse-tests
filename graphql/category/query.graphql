@@ -1,0 +1,5 @@
+extend type Query @guard {
+    category(id: ID! @eq): Category @find
+    categories(name: String): [Category!]! @paginate(builder: "App\\GraphQL\\Queries\\Categories")
+    allCategories: [Category!]! @all
+}

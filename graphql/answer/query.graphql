@@ -1,0 +1,4 @@
+extend type Query @guard {
+    answer(id: ID! @eq): Answer @find
+    answers: [Answer!]! @all
+}

@@ -1,0 +1,15 @@
+type LoginPayload {
+    user: User!
+    accessToken: String!
+}
+
+type Mutation {
+    login(email: String!, password: String!): LoginPayload!
+    logout: User @guard
+    register(
+        name: String! @rules(apply: ["required", "string"])
+        email: String! @rules(apply: ["required", "email"])
+        password: String! @rules(apply: ["required", "confirmed"])
+        password_confirmation: String!
+    ): User!
+}

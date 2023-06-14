@@ -1,0 +1,4 @@
+input ResultAnswers {
+    question_id: ID!
+    answer_id: ID!
+}

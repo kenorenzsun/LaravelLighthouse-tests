@@ -1,0 +1,7 @@
+type Answer {
+    id: ID!
+    answer: String!
+    question_id: ID!
+    is_correct: Boolean!
+    question: Question! @belongsTo
+}

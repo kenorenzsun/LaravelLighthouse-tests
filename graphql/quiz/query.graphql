@@ -1,0 +1,7 @@
+extend type Query @guard {
+    quiz(id: ID! @eq): Quiz @find
+    quizzes(
+        category_id: ID
+        name: String
+    ): [Quiz!]! @paginate(builder: "App\\GraphQL\\Queries\\Quizzes")
+}

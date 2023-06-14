@@ -1,0 +1,12 @@
+extend type Mutation @guard {
+    createCategory(
+        name: String! @rules(apply: ["required"])
+        description: String! @rules(apply: ["required"])
+    ): Category! @create
+    updateCategory(
+        id: ID! @rules(apply: ["required", "integer"])
+        name: String! @rules(apply: ["required"])
+        description: String! @rules(apply: ["required"])
+    ): Category! @update
+    deleteCategory(id: ID! @whereKey): Category! @delete
+}

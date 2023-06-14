@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      args:
+        user: backend
+        uid: 1000
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_DATABASE: vue_quiz_app
+      DB_USERNAME: root
+      DB_PASSWORD: password
+    container_name: vue-quiz-be
+    restart: unless-stopped
+    working_dir: /var/www/backend
+    volumes:
+      - ./:/var/www/backend
+    networks:
+      - vue_quiz_app
+    ports:
+      - 8001:8001
+  db:
+    image: mysql:8.0.31
+    environment:
+      MYSQL_DATABASE: 'vue_quiz_app'
+      MYSQL_ROOT_PASSWORD: 'password'
+    ports: 
+    - '3307:3306'
+    volumes:
+      - .dbdata:/var/lib/mysql/
+    restart: unless-stopped
+    networks:
+      - vue_quiz_app
+networks:
+  vue_quiz_app:
+    driver: bridge

@@ -1,0 +1,4 @@
+extend type Query @guard {
+    question(id: ID! @eq): Question @find
+    questions(question: String! = "%%" @where(operator: "like")): [Question!]! @paginate
+}
