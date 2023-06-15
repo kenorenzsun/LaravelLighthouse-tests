@@ -3,12 +3,16 @@ extend type Mutation @guard {
         answer: String! @rules(apply: ["required"])
         is_correct: Boolean
         question_id: ID! @rules(apply: ["required", "integer"])
-    ): Answer! @create
+    ): Answer! @field(resolver: "App\\GraphQL\\Mutations\\CreateAnswer")
+    setAnswerToCorrect(
+        question_id: ID!,
+        id: ID!,
+    ): Answer! @field(resolver: "App\\GraphQL\\Mutations\\SetAnswerToCorrect")
     updateAnswer(
         id: ID! @rules(apply: ["required", "integer"])
         is_correct: Boolean
         answer: String! @rules(apply: ["required"])
         question_id: ID! @rules(apply: ["required", "integer"])
     ): Answer! @update
-    deleteAnswer(id: ID! @whereKey): Answer! @delete
+    deleteAnswer(id: ID!): Answer! @field(resolver: "App\\GraphQL\\Mutations\\DeleteAnswer")
 }

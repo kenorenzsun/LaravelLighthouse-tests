@@ -1,4 +1,8 @@
 extend type Query @guard {
     question(id: ID! @eq): Question @find
-    questions(question: String! = "%%" @where(operator: "like")): [Question!]! @paginate
+    allQuestions: [Quiz!]! @all
+    questions(
+        quiz_id: ID
+        question: String
+    ): [Question!]! @paginate(builder: "App\\GraphQL\\Queries\\Questions")
 }
